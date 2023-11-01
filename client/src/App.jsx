@@ -1,12 +1,22 @@
 import React from 'react';
+import {BrowserRouter, Route, Routes} from "react-router-dom";
+
+import {AboutPage, HomePage, ProfilePage, SignInPage, SignOutPage} from "./pages/index.js";
+
+
 
 const App = () => {
     return (
-        <div>
-            <h1 className="text-3xl font-bold underline">
-                Hello world!
-            </h1>
-        </div>
+   <BrowserRouter>
+       <Routes>
+           <Route path='/' element={<HomePage/>}/>
+           <Route path='/sign-in' element={<SignInPage/>}/>
+           <Route path='/sign-out' element={<SignOutPage/>}/>
+           <Route path='/about' element={<AboutPage/>}/>
+           <Route path='/profile' element={<ProfilePage/>}/>
+
+       </Routes>
+   </BrowserRouter>
     );
 };
 
