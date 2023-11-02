@@ -3,7 +3,7 @@ import cors from "cors";
 import helmet from "helmet";
 import mongoose from "mongoose";
 
-import { mainConfig } from "./configs/main-config.js";
+import { mainConfig } from "./configs/main.config.js";
 
 const app = express();
 
