@@ -1,5 +1,5 @@
 export * from './AboutPage';
 export * from './SignInPage';
-export * from './SignOutPage';
+export * from './SignUpPage';
 export * from './ProfilePage';
 export * from './HomePage';
