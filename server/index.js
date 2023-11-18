@@ -4,8 +4,8 @@ import helmet from "helmet";
 import mongoose from "mongoose";
 
 import { mainConfig } from "./configs/main.config.js";
-import { usersRouter } from './routes/users.router.js';
-import { authRouter } from './routes/auth.router.js';
+import { usersRouter } from "./routes/users.router.js";
+import { authRouter } from "./routes/auth.router.js";
 
 const app = express();
 
@@ -15,8 +15,18 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use(helmet());
 
-app.use('/api/user', usersRouter);
-app.use('/api/auth', authRouter);
+app.use("/api/user", usersRouter);
+app.use("/api/auth", authRouter);
+
+app.use((err, req, res, next) => {
+  const statusCode = err.statusCode || 500;
+  const message = err.message || "Internal Server Error";
+  return res.status(statusCode).json({
+    success: false,
+    statusCode,
+    message,
+  });
+});
 
 const { PORT, MONGO } = mainConfig;
 
