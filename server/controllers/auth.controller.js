@@ -1,7 +1,7 @@
 import User from "../models/user.model.js";
 import { bcryptService } from "../services/bcrypt.service.js";
-import { errorHandler } from "../utils/error.js";
 import { jwtService } from "../services/jwt.service.js";
+import { errorHandler } from "../utils/error.js";
 
 class AuthController {
   async signUp(req, res, next) {
