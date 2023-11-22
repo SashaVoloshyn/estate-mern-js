@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 import { AboutPage, HomePage, ProfilePage, SignInPage, SignUpPage } from './pages';
-import { Header } from './components';
+import { Header, PrivateRoute } from './components';
 
 const App = () => {
 	return (
@@ -13,7 +13,10 @@ const App = () => {
 				<Route path='/sign-in' element={<SignInPage />} />
 				<Route path='/sign-up' element={<SignUpPage />} />
 				<Route path='/about' element={<AboutPage />} />
-				<Route path='/profile' element={<ProfilePage />} />
+
+				<Route element={<PrivateRoute />}>
+					<Route path='/profile' element={<ProfilePage />} />
+				</Route>
 			</Routes>
 		</BrowserRouter>
 	);
