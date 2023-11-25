@@ -2,6 +2,7 @@ import express from "express";
 import cors from "cors";
 import helmet from "helmet";
 import mongoose from "mongoose";
+import cookieParser from "cookie-parser";
 
 import { mainConfig } from "./configs/main.config.js";
 import { usersRouter } from "./routes/users.router.js";
@@ -10,6 +11,7 @@ import { authRouter } from "./routes/auth.router.js";
 const app = express();
 
 app.use(express.json());
+app.use(cookieParser());
 app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 
